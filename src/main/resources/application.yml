@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/kakaologin
+    username: root
+    password: 5041
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-id: ca83854bd09d4ab7befdac044fec01ce
+            client-secret: k5uSp5AXRQ8R4DS3vQjsUfie9rQz05Ip
+            provider: kakao
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: profile_nickname, profile_image, account_email
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.security: DEBUG
