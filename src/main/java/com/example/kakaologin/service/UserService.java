@@ -1,5 +1,7 @@
-package com.example.kakaologin;
+package com.example.kakaologin.service;
 
+import com.example.kakaologin.model.User;
+import com.example.kakaologin.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

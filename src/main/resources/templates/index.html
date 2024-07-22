@@ -2,17 +2,66 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            width: 300px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        p {
+            font-size: 16px;
+            color: #555555;
+        }
+        img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-top: 10px;
+        }
+        a.button {
+            display: inline-block;
+            background-color: #ffeb00;
+            color: #3c1e1e;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        a.button:hover {
+            background-color: #ffdb00;
+        }
+    </style>
 </head>
 <body>
-<div>
+<div class="container">
     <h1>Welcome</h1>
     <div th:if="${name != null}">
         <p th:text="'Hello, ' + ${name} + '!'"></p>
         <p th:text="'Email: ' + ${email}"></p>
-        <a href="/logout">Logout</a>
+        <p><img th:src="${profileImageUrl}" alt="Profile Image" /></p>
+        <a href="https://kauth.kakao.com/oauth/logout?client_id=ca83854bd09d4ab7befdac044fec01ce&logout_redirect_uri=http://localhost:8080/logout" class="button">Logout</a>
     </div>
     <div th:if="${name == null}">
-        <a href="/login">Login</a>
+        <a href="/login" class="button">Login</a>
     </div>
 </div>
 </body>

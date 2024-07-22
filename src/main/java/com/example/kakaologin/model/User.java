@@ -1,4 +1,4 @@
-package com.example.kakaologin;
+package com.example.kakaologin.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
